@@ -1,5 +1,5 @@
 ### About
-Working on [getdelv](https://getdelv.com)   
+ 
 Read my [blog](https://loreley.one)  
 Contact me: [email](mailto:info@loreley.one)  
 
