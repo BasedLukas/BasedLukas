@@ -3,7 +3,8 @@
   <img alt="Technical founder, computer programming and machine learning expert: leading engineering teams, web applications, data pipelines, scraping, data processing, and statistical and machine learning models" src="assets/header-light.svg" width="100%">
 </picture>
 
-## [Blog](https://loreley.one) · [Email](mailto:info@loreley.one)
+#### Blog: [https://loreley.one](https://loreley.one) 
+#### Email: info@loreley.one
 
 ### Latest writing
 
