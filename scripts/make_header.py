@@ -1,8 +1,8 @@
-"""Generate the animated terminal header and link buttons (assets/header-*.svg, assets/link-*.svg).
+"""Generate the animated terminal header (assets/header-dark.svg and header-light.svg).
 
 Run:  uv run --with fonttools --with brotli scripts/make_header.py
 
-Edit WHOAMI, LINES and BUTTONS below to change the text. The font is subset to the
+Edit WHOAMI and LINES below to change the text. The font is subset to the
 characters used and embedded, because GitHub shows the SVG as an image and an
 image cannot load web fonts.
 """
@@ -33,12 +33,6 @@ LINES = [
         [("modelling   ", "key"), ("training and evaluating statistical and machine learning models", "fg")],
     ]),
 ]
-# Link buttons shown under the terminal: (file name, label, value)
-BUTTONS = [
-    ("blog", "blog", "loreley.one"),
-    ("email", "email", "info@loreley.one"),
-]
-
 THEMES = {
     "dark": dict(bg="#0b0a08", fg="#f4e3c1", prompt="#ffb340", key="#8fd3c8", dim="#7d6f57", rule="#2a251c"),
     "light": dict(bg="#fbf6ea", fg="#2b2418", prompt="#a35d00", key="#1f6f66", dim="#9b8d73", rule="#e8dfcb"),
@@ -121,21 +115,8 @@ def build(theme: dict, face: str) -> str:
     )
 
 
-def button(theme: dict, face: str, label: str, value: str) -> str:
-    w, h = 392, 56
-    return (
-        f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {w} {h}" width="{w}" height="{h}" role="img" aria-label="{escape(label)}: {escape(value)}">\n'
-        f"<style>{face} text{{font-family:'JBM',ui-monospace,Menlo,monospace;}}</style>\n"
-        f'<rect x="0.5" y="0.5" width="{w - 1}" height="{h - 1}" rx="10" fill="{theme["bg"]}" stroke="{theme["rule"]}"/>\n'
-        f'<text x="24" y="34" style="font-size:14px" fill="{theme["key"]}">{escape(label)}</text>\n'
-        f'<text x="88" y="35" style="font-size:18px" fill="{theme["fg"]}">{escape(value)}</text>\n'
-        f'<text x="{w - 24}" y="35" style="font-size:18px" text-anchor="end" fill="{theme["prompt"]}">→</text>\n'
-        "</svg>\n"
-    )
-
-
 def main() -> None:
-    chars = PROMPT + "tty1loreley.one→" + "".join(label + value for _, label, value in BUTTONS)
+    chars = PROMPT + "tty1loreley.one"
     for cmd, outputs in LINES:
         chars += cmd + "".join(txt for parts in outputs for txt, _ in parts)
     face = font_face(chars)
@@ -143,10 +124,6 @@ def main() -> None:
         out = ROOT / f"assets/header-{name}.svg"
         out.write_text(build(theme, face))
         print(f"wrote {out.relative_to(ROOT)} ({out.stat().st_size / 1024:.1f} KB)")
-        for slug, label, value in BUTTONS:
-            out = ROOT / f"assets/link-{slug}-{name}.svg"
-            out.write_text(button(theme, face, label, value))
-            print(f"wrote {out.relative_to(ROOT)}")
 
 
 if __name__ == "__main__":

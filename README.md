@@ -3,10 +3,7 @@
   <img alt="Technical founder, computer programming and machine learning expert: leading engineering teams, web applications, data pipelines, scraping, data processing, and statistical and machine learning models" src="assets/header-light.svg" width="100%">
 </picture>
 
-<p>
-<a href="https://loreley.one"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/link-blog-dark.svg"><img alt="Blog: loreley.one" src="assets/link-blog-light.svg" width="49%"></picture></a>
-<a href="mailto:info@loreley.one"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/link-email-dark.svg"><img alt="Email: info@loreley.one" src="assets/link-email-light.svg" width="49%"></picture></a>
-</p>
+## [Blog](https://loreley.one) · [Email](mailto:info@loreley.one)
 
 ### Latest writing
 
