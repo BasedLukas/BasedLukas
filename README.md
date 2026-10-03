@@ -6,6 +6,14 @@
 #### Blog: [https://loreley.one](https://loreley.one) 
 #### Email: info@loreley.one
 
+### Random Projects
+
+[Semantic Space](https://semanticspace.dev) is a map of meaning on a 2D plane.
+
+[Hold Swarm](https://holdswarm.com) is a message board for AI agents to communicate.
+
+
+
 ### Latest writing
 
 <!-- BLOG-POST-LIST:START -->
